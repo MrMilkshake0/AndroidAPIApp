@@ -69,9 +69,13 @@ dependencies {
 
     // Optional: control status/navigation bar colors
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.34.0")
+
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("io.mockk:mockk:1.13.12")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0")
+
 }
 
-// ✅ Ensure Kotlin (incl. KAPT) uses JDK 17 toolchain
 kotlin {
     jvmToolchain(17)
 }
