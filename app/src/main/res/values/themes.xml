@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.NIT3213" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Put app-wide overrides here if you like -->
+        <!-- Example: <item name="android:statusBarColor">@android:color/transparent</item> -->
+    </style>
+</resources>
