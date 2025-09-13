@@ -10,17 +10,18 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import com.example.nit3213.data.AssetEntity
 
 data class DashboardUiState(
     val loading: Boolean = false,
     val error: String? = null,
-    val items: List<JsonObject> = emptyList()
+    val items: List<AssetEntity> = emptyList()   // <-- use AssetEntity
 )
 
 @HiltViewModel
 class DashboardViewModel @Inject constructor(
     private val repo: Repository
-) : ViewModel() {
+): ViewModel() {
 
     private val _state = MutableStateFlow(DashboardUiState())
     val state: StateFlow<DashboardUiState> = _state
@@ -30,7 +31,9 @@ class DashboardViewModel @Inject constructor(
         viewModelScope.launch {
             val result = repo.getDashboard()
             _state.value = result.fold(
-                onSuccess = { res: DashboardResponse -> DashboardUiState(items = res.entities) },
+                onSuccess = { res ->
+                    DashboardUiState(items = res.entities.map { AssetEntity.fromJson(it) })
+                },
                 onFailure = { DashboardUiState(error = it.message ?: "Load failed") }
             )
         }

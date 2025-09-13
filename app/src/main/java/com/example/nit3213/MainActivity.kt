@@ -29,7 +29,11 @@ class MainActivity : ComponentActivity() {
 
                         composable("login") {
                             LoginScreen(
-                                onSuccess = { nav.navigate("dashboard") { popUpTo("login") { inclusive = true } } }
+                                onSuccess = {
+                                    nav.navigate("dashboard") {
+                                        popUpTo("login") { inclusive = true }
+                                    }
+                                }
                             )
                         }
 
@@ -45,9 +49,9 @@ class MainActivity : ComponentActivity() {
                         composable(
                             route = "details/{entityJson}",
                             arguments = listOf(navArgument("entityJson") { type = NavType.StringType })
-                        ) {
-                            val json = it.arguments?.getString("entityJson").orEmpty()
-                            DetailsScreen(json)
+                        ) { backStackEntry ->
+                            val json = backStackEntry.arguments?.getString("entityJson").orEmpty()
+                            DetailsScreen(entityJson = json, onBack = { nav.popBackStack() })
                         }
                     }
                 }
