@@ -11,11 +11,14 @@ import androidx.core.view.WindowCompat
 class DetailsActivity : AppCompatActivity() {
 
     companion object {
+        // Key used to pass the clicked item from Dashboard → Details
         const val EXTRA_ENTITY_JSON = "extra_entity_json"
     }
 
     private lateinit var binding: ActivityDetailsBinding
     private val gson = Gson()
+
+    // For nice formatting of numbers
     private val currency = NumberFormat.getCurrencyInstance()
     private val percent = NumberFormat.getPercentInstance().apply { minimumFractionDigits = 2 }
 
@@ -24,19 +27,20 @@ class DetailsActivity : AppCompatActivity() {
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Handle back button press on the toolbar
+        // Toolbar back button → return to Dashboard
         binding.topAppBar.setNavigationOnClickListener {
-            finish() // closes DetailsActivity and returns to DashboardActivity
+            finish()
         }
 
+        // Get the JSON for this entity from the Intent
         val json = intent.getStringExtra(EXTRA_ENTITY_JSON)
         val entity = gson.fromJson(json, AssetEntity::class.java)
 
+        // Fill in the UI with the entity’s data
         binding.tvTitle.text = "${entity.ticker} • ${entity.assetType}"
         binding.tvPrice.text = "Price: " + (entity.currentPrice?.let { currency.format(it) } ?: "—")
         binding.tvYield.text = "Yield: " + (entity.dividendYield?.let { percent.format(it) } ?: "—")
         binding.tvDesc.text = entity.description ?: "—"
     }
-
-
 }
+

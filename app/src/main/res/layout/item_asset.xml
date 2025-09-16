@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Card for a single asset item in the list.
+- Rounded corners and outline
+- Clickable & focusable so it can respond to taps
+-->
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -15,61 +21,74 @@
     android:clickable="true"
     android:focusable="true">
 
-<LinearLayout
-android:orientation="vertical"
-android:padding="14dp"
-android:layout_width="match_parent"
-android:layout_height="wrap_content">
+    <!--
+    Vertical LinearLayout inside the card.
+    Holds all asset info with padding around content.
+    -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="14dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-<!-- Ticker & Type -->
-<LinearLayout
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center_vertical">
+        <!--
+        Row: ticker (left, bold) and type (right, smaller, lighter).
+        -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
 
-    <TextView
-        android:id="@+id/tvTicker"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:textColor="?attr/colorOnSurface"/>
+            <!-- Asset ticker symbol -->
+            <TextView
+                android:id="@+id/tvTicker"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="?attr/colorOnSurface"/>
 
-    <TextView
-        android:id="@+id/tvType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textColor="?attr/colorOnSurface"
-        android:alpha="0.8"/>
-</LinearLayout>
+            <!-- Asset type (e.g., stock, bond) -->
+            <TextView
+                android:id="@+id/tvType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="?attr/colorOnSurface"
+                android:alpha="0.8"/>
+        </LinearLayout>
 
-<!-- Price & Yield -->
-<LinearLayout
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
-    android:weightSum="2">
+        <!--
+        Row: price (left) and yield (right).
+        Spread evenly using weights.
+        -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:weightSum="2">
 
-    <TextView
-        android:id="@+id/tvPrice"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textColor="?attr/colorOnSurface"
-        android:text="Price: —"/>
+            <!-- Asset price -->
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="?attr/colorOnSurface"
+                android:text="Price: —"/>
 
-    <TextView
-        android:id="@+id/tvYield"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="end"
-        android:textColor="?attr/colorOnSurface"
-        android:text="Yield: —"/>
-</LinearLayout>
-</LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+            <!-- Asset yield (aligned to end) -->
+            <TextView
+                android:id="@+id/tvYield"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:textColor="?attr/colorOnSurface"
+                android:text="Yield: —"/>
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Root layout: ConstraintLayout lets you position views relative to each other
+and to the parent (very flexible for responsive UIs).
+-->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,6 +12,7 @@
     android:background="?attr/colorSurface"
     android:padding="16dp">
 
+    <!-- Top app bar (toolbar) fixed to the top; title is centered -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topAppBar"
         android:layout_width="0dp"
@@ -19,7 +25,10 @@
         app:backgroundTint="?attr/colorSurface"
         app:titleCentered="true"/>
 
-    <!-- Campus selection (RadioGroup) -->
+    <!--
+    Campus selection:
+    A MaterialCard groups a single-selection toggle group with 3 buttons.
+    -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/campusCard"
         android:layout_width="0dp"
@@ -31,6 +40,7 @@
         app:cardCornerRadius="16dp"
         app:cardBackgroundColor="?attr/colorSurfaceVariant">
 
+        <!-- Only one campus can be selected; selection is required -->
         <com.google.android.material.button.MaterialButtonToggleGroup
             android:id="@+id/groupCampus"
             android:layout_width="match_parent"
@@ -39,6 +49,7 @@
             app:singleSelection="true"
             app:selectionRequired="true">
 
+            <!-- Default selection: Footscray -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnFootscray"
                 style="@style/Widget.Material3.Button.OutlinedButton"
@@ -66,7 +77,7 @@
         </com.google.android.material.button.MaterialButtonToggleGroup>
     </com.google.android.material.card.MaterialCardView>
 
-    <!-- Username -->
+    <!-- First name input: TextInputLayout provides floating label and Material styling -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilUser"
         style="@style/Widget.App.TextInputLayout.Filled"
@@ -78,6 +89,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
+        <!-- Actual text field bound in code as etUsername -->
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etUsername"
             android:layout_width="match_parent"
@@ -85,7 +97,10 @@
             android:inputType="textPersonName"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Password -->
+    <!--
+    Student ID input:
+    Uses numberPassword to hide digits; endIcon shows a visibility toggle.
+    -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilPass"
         style="@style/Widget.App.TextInputLayout.Filled"
@@ -98,6 +113,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
+        <!-- Actual text field bound in code as etPassword -->
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
@@ -105,7 +121,7 @@
             android:inputType="numberPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Button — make it match the card (outlined + surfaceVariant) -->
+    <!-- Sign-in button styled as outlined to match the card color scheme -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogin"
         android:text="Sign In"
@@ -122,7 +138,7 @@
         android:textColor="?attr/colorOnSurface"
         app:cornerRadius="16dp"/>
 
-    <!-- Progress -->
+    <!-- Progress spinner: hidden by default; shown while logging in -->
     <ProgressBar
         android:id="@+id/progress"
         style="?android:attr/progressBarStyle"
@@ -134,7 +150,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Error -->
+    <!-- Error text: hidden until a login failure occurs -->
     <TextView
         android:id="@+id/tvError"
         android:visibility="gone"
