@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.NIT3213" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowFullscreen">false</item>
+
+        <item name="colorPrimary">@color/md_sys_color_primary</item>
+        <item name="colorOnPrimary">@color/md_sys_color_onPrimary</item>
+        <item name="colorSurface">@color/md_sys_color_surface</item>
+        <item name="colorOnSurface">@color/md_sys_color_onSurface</item>
+        <item name="colorSurfaceVariant">@color/md_sys_color_surfaceVariant</item>
+        <item name="colorSecondary">@color/md_sys_color_secondary</item>
+        <item name="colorError">@color/md_sys_color_error</item>
+        <item name="android:colorBackground">@color/md_sys_color_surface</item>
+        <item name="colorOnSecondary">@color/md_sys_color_onSecondary</item>
+        <item name="colorOnError">@color/md_sys_color_onError</item>
+        <item name="shapeAppearanceSmallComponent">@style/Shape.Rounded.M</item>
+        <item name="shapeAppearanceMediumComponent">@style/Shape.Rounded.L</item>
+        <item name="shapeAppearanceLargeComponent">@style/Shape.Rounded.2XL</item>
+        <item name="textInputStyle">@style/Widget.App.TextInputLayout.Filled</item>
+        <item name="materialButtonStyle">@style/Widget.App.Button.Primary</item>
+    </style>
+</resources>
+

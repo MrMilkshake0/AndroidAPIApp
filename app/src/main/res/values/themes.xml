@@ -1,7 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.NIT3213" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Put app-wide overrides here if you like -->
-        <!-- Example: <item name="android:statusBarColor">@android:color/transparent</item> -->
+        <!-- We’ll let DayNight auto-switch; our Night theme below is primary -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowFullscreen">false</item>
+
+        <!-- Material color slots -->
+        <item name="colorPrimary">@color/md_sys_color_primary</item>
+        <item name="colorOnPrimary">@color/md_sys_color_onPrimary</item>
+        <item name="colorSurface">@color/md_sys_color_surface</item>
+        <item name="colorOnSurface">@color/md_sys_color_onSurface</item>
+        <item name="colorSurfaceVariant">@color/md_sys_color_surfaceVariant</item>
+        <item name="colorSecondary">@color/md_sys_color_secondary</item>
+        <item name="colorError">@color/md_sys_color_error</item>
+        <item name="android:colorBackground">@color/md_sys_color_surface</item>
+
+        <!-- Rounded, modern shapes -->
+        <item name="shapeAppearanceSmallComponent">@style/Shape.Rounded.M</item>
+        <item name="shapeAppearanceMediumComponent">@style/Shape.Rounded.L</item>
+        <item name="shapeAppearanceLargeComponent">@style/Shape.Rounded.2XL</item>
+
+        <!-- Filled text fields by default -->
+        <item name="textInputStyle">@style/Widget.App.TextInputLayout.Filled</item>
+
+        <!-- Buttons -->
+        <item name="materialButtonStyle">@style/Widget.App.Button.Primary</item>
+
+        <!-- Typography (use Material defaults; can customize later) -->
+    </style>
+
+    <!-- Shapes -->
+    <style name="Shape.Rounded.M" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+    <style name="Shape.Rounded.L" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+    <style name="Shape.Rounded.2XL" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">24dp</item>
+    </style>
+
+    <!-- Widgets -->
+    <style name="Widget.App.TextInputLayout.Filled" parent="Widget.Material3.TextInputLayout.FilledBox">
+        <item name="boxBackgroundMode">filled</item>
+        <item name="boxBackgroundColor">@color/md_sys_color_surfaceVariant</item>
+        <item name="boxStrokeColor">@color/md_sys_color_outline</item>
+        <item name="boxCornerRadiusTopStart">14dp</item>
+        <item name="boxCornerRadiusTopEnd">14dp</item>
+        <item name="boxCornerRadiusBottomStart">14dp</item>
+        <item name="boxCornerRadiusBottomEnd">14dp</item>
+        <item name="hintTextColor">@color/md_sys_color_onSurface</item>
+    </style>
+
+    <style name="Widget.App.Button.Primary" parent="Widget.Material3.Button">
+        <item name="android:minHeight">48dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="cornerRadius">14dp</item>
     </style>
 </resources>

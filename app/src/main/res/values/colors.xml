@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="card_dark_background">#2B2D3A</color>
+    <!-- Dark surfaces -->
+    <color name="md_sys_color_surface">#0B0F14</color> <!-- very dark grey -->
+    <color name="md_sys_color_surfaceVariant">#141A20</color>
+    <color name="md_sys_color_outline">#29323B</color>
+
+    <!-- Accents -->
+    <color name="md_sys_color_primary">#8AB4F8</color>  <!-- soft blue -->
+    <color name="md_sys_color_secondary">#92E3A9</color> <!-- mint green -->
+    <color name="md_sys_color_error">#FF6B6B</color>    <!-- bright red -->
+
+    <!-- "On" colors for text/icons -->
+    <color name="md_sys_color_text">#FFFFFF</color>
+    <color name="md_sys_color_onSurface">#FFFFFF</color>
+    <color name="md_sys_color_onPrimary">#FFFFFF</color>
+    <color name="md_sys_color_onSecondary">#0B0F14</color>
+    <color name="md_sys_color_onError">#FFFFFF</color>
 </resources>
+
